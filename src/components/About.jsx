@@ -1,29 +1,49 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './About.css';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { useNavigate , Link } from 'react-router-dom';
 
 import logo from "../assets/R.png"; 
 
 const About = () => {
 
   const navigate = useNavigate();
+
+  const [scrolled , setScrolled] = useState(false);
+
+  useEffect(()=> {
+    const onScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+    window.addEventListener('scroll' , onScroll);
+    return () => window.removeEventListener('scroll' , onScroll);
+  }, []);
+
   return (
     <div>
-        <header className='header'>
-            <div className='logo'>
-                <img src={logo} alt='Logo' className='logo-img'  onClick={() => navigate("/")} />
-            </div>
 
-            <nav className='nav-links'>
-                <a href=''>Home</a>
-                <a href=''>About</a>
-                <a href=''>Programs</a>
-                <a href=''>Contact</a>
-            </nav>
-        </header>
+      {/*--------------------------------------- Header Section-------------------------------*/}
+
+      <header className={`header ${scrolled ? 'scrolled' : ''}`}>
+      <div className='logo'>
+        <img
+          src={logo}
+          alt='Logo'
+          className='logo-img'
+          onClick={() => navigate('/')}
+        />
+      </div>
+
+        <nav className='nav-links'>
+          <Link to='/'>Home</Link>
+          <Link to=''>About</Link>
+          <Link to=''>Programs</Link>
+          <Link to=''>Contact</Link>
+        </nav>
+      </header>
 
       {/* ----------------------- Hero Section ---------------------------  */}
-      <section className="hero-section">
+      
+       <section className="hero-section">
         <div className="hero-text">
           <h1 className="hero-title">
             Master Tech Skills with Peer-to-Peer Learning
@@ -33,19 +53,25 @@ const About = () => {
             on real-world projects, and accelerate your career with expert
             mentorship.
           </p>
-          <div className="hero-buttons">
-            <button className="explore-btn">⭐ Explore Talent</button>
-            <button className="hire-btn">🧑🎓 Hire as Student</button>
-            <button className="try-btn">🚀 Try Free</button>
-          </div>
+            <div className="hero-buttons">
+              <button className="explore-btn" onClick={() => navigate('')}>
+                ⭐ Explore Talent
+              </button>
+              <button className="hire-btn" onClick={() => navigate('')}>
+                🧑🎓 Hire as Student
+              </button>
+              <button className="try-btn" onClick={() => navigate('')}>
+                🚀 Try Free
+              </button>
+            </div>
         </div>
-      <div className="hero-image">
-        <img
-          src="https://img.freepik.com/free-vector/education-concept-illustration_114360-811.jpg?semt=ais_hybrid&w=740"
-          alt="Education"
-          className="hero-img"
-        />
-      </div>
+        <div className="hero-image">
+          <img
+            src="https://img.freepik.com/free-vector/education-concept-illustration_114360-811.jpg?semt=ais_hybrid&w=740"
+            alt="Education"
+            className="hero-img"
+          />
+        </div>
     </section>
 
     {/* ----------------------- About Section ---------------------------  */}
