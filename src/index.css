@@ -8,7 +8,7 @@
 html , body {
     height: 100%;
     width: 100%;
+    background-color: #F5F6FA;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #333;
 }
 

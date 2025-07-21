@@ -1,45 +1,46 @@
 import React, { useEffect, useState } from 'react'
 import './About.css';
 import { useNavigate , Link } from 'react-router-dom';
+import { FaBars, FaTimes } from 'react-icons/fa';
 
 import logo from "../assets/R.png"; 
 
 const About = () => {
 
   const navigate = useNavigate();
+  const [menuOpen, setMenuOpen] = useState(false);
 
-  const [scrolled , setScrolled] = useState(false);
-
-  useEffect(()=> {
-    const onScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
-    window.addEventListener('scroll' , onScroll);
-    return () => window.removeEventListener('scroll' , onScroll);
-  }, []);
-
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
   return (
     <div>
 
       {/*--------------------------------------- Header Section-------------------------------*/}
 
-      <header className={`header ${scrolled ? 'scrolled' : ''}`}>
-      <div className='logo'>
-        <img
-          src={logo}
-          alt='Logo'
-          className='logo-img'
-          onClick={() => navigate('/')}
-        />
-      </div>
+      <header className="header">
+        <div className="logo">
+          <img
+            src={logo}
+            alt="Logo"
+            className="logo-img"
+            onClick={() => navigate('/')}
+          />
+        </div>
 
-        <nav className='nav-links'>
-          <Link to='/'>Home</Link>
-          <Link to=''>About</Link>
-          <Link to=''>Programs</Link>
-          <Link to=''>Contact</Link>
-        </nav>
+        <div className="menu-icon" onClick={toggleMenu}>
+          {menuOpen ? <FaTimes /> : <FaBars />}
+        </div>
       </header>
+
+      {menuOpen && (
+        <nav className="mobile-nav">
+          <Link to="/" onClick={toggleMenu}>Home</Link>
+          <Link to="/about" onClick={toggleMenu}>About</Link>
+          <Link to="/programs" onClick={toggleMenu}>Programs</Link>
+          <Link to="/contact" onClick={toggleMenu}>Contact</Link>
+        </nav>
+      )}
 
       {/* ----------------------- Hero Section ---------------------------  */}
       
