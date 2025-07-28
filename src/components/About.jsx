@@ -3,7 +3,8 @@ import './About.css';
 import { useNavigate , Link } from 'react-router-dom';
 import { FaBars, FaTimes } from 'react-icons/fa';
 
-import logo from "../assets/R.png"; 
+import logo from "../assets/logo.png"; 
+import heroSectionImg from "../assets/hero_section_img.jpg";
 
 const About = () => {
 
@@ -68,7 +69,7 @@ const About = () => {
         </div>
         <div className="hero-image">
           <img
-            src="https://img.freepik.com/free-vector/education-concept-illustration_114360-811.jpg?semt=ais_hybrid&w=740"
+            src={heroSectionImg}
             alt="Education"
             className="hero-img"
           />
