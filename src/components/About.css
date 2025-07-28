@@ -1,13 +1,15 @@
+/* Header Styling */
 .header {
   position: fixed;
   top: 0;
+  left: 0;
   width: 100%;
-  z-index: 999;
+  z-index: 1000; /* Increased to stay on top */
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 15px 30px;
-  background-color: #0F0C29;
+  background-color: #1e293b;
   color: white;
   font-family: Arial, sans-serif;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
@@ -26,6 +28,7 @@
   font-size: 24px;
   cursor: pointer;
   color: white;
+  z-index: 1001; /* Ensures it's above nav */
 }
 
 /* Hide desktop nav completely */
@@ -35,19 +38,20 @@
 
 /* Mobile dropdown nav */
 .mobile-nav {
-  position: absolute;
-  top: 60px;
+  position: fixed; /* Changed from absolute to fixed */
+  top: 70px; /* below header */
   right: 20px;
-  background-color: #0F0C29;
+  background-color: #1e293b;
   border-radius: 8px;
   padding: 15px 20px;
   display: flex;
   flex-direction: column;
   gap: 15px;
   box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-  z-index: 998;
+  z-index: 999; /* On top of most elements, under menu-icon */
 }
 
+/* Mobile nav links */
 .mobile-nav a {
   color: white;
   text-decoration: none;
@@ -60,6 +64,7 @@
 
 
 
+
 /* hero section */
 
 .hero-section {
@@ -69,7 +74,7 @@
   align-items: center;
   padding: 4rem 2rem;
   /*background: linear-gradient(to right,  #87b6c4, #37afd4, #5faa7c);*/
-  animation fadeInUp 0.5s ease-out;
+  animation : fadeInUp 0.5s ease-out;
   height: 100vh;
   width: 100vw;
 }
@@ -87,16 +92,14 @@
 }
 
 .hero-title {
-  font-size: 3rem;
-  font-weight: 800;
-  color: #7d4218;
+  font-size: 34px;
+  font-weight: 700;
   line-height: 1.2;
 }
 
 .hero-description {
+  color: #64748b;
   margin-top: 1rem;
-  font-size: 1.125rem;
-  color: #500e1f;
 }
 
 .hero-buttons {
@@ -106,7 +109,7 @@
 }
 
 .explore-btn {
-  background: linear-gradient(to right, #312ba0, #47bae3);
+  background-color: #3b82f6;
   color: white;
   padding: 0.75rem 1.5rem;
   border-radius: 9999px;
@@ -118,11 +121,11 @@
 }
 
 .explore-btn:hover {
-  background: linear-gradient(to right, #dc2626, #db2777);
+ background-color: #0056b3;
 }
 
 .hire-btn {
-  background: linear-gradient(to right, #312ba0, #47bae3);
+  background-color: #3b82f6;
   color:white;
   padding: 0.75rem 1.5rem;
   border-radius: 9999px;
@@ -134,11 +137,11 @@
 }
 
 .hire-btn:hover {
- background: linear-gradient(to right, #dc2626, #db2777);
+ background-color: #0056b3;
 }
 
 .try-btn {
- background: linear-gradient(to right, #312ba0, #47bae3);
+  background-color: #3b82f6;
   color:white;
   padding: 0.75rem 1.5rem;
   border-radius: 9999px;
@@ -150,7 +153,7 @@
 }
 
 .try-btn:hover {
- background: linear-gradient(to right, #dc2626, #db2777);
+ background-color: #0056b3;
 }
 
 .hero-image {
@@ -188,7 +191,6 @@
 /* --------------------------- About Section--------------- */
 
 .about-section {
-  background-color: white;
   padding: 5rem 2rem;
 }
 
@@ -201,14 +203,13 @@
 .section-title {
   font-size: 2.5rem;
   font-weight: bold;
-  color: #7d4218;
   margin-bottom: 2rem;
   animation: fadeInUp 0.6s ease;
 }
 
 .section-description {
+  color: #64748b;
   font-size: 1.25rem;
-  color: #500e1f;
   margin-bottom: 3rem;
 }
 
@@ -246,14 +247,16 @@
   text-align: left;
 }
 
+.card p {
+  color: #64748b;
+}
+
 .card:hover {
-background: linear-gradient(to bottom, #c2dad1, #FFFFFF);
   transform: scale(1.03);
 }
 
 .card h3,
 .card h4 {
-  color: #047857;
   font-weight: 600;
   margin-bottom: 1rem;
 }
@@ -265,12 +268,11 @@ background: linear-gradient(to bottom, #c2dad1, #FFFFFF);
 .section-block h3 {
   font-size: 2rem;
   font-weight: bold;
-  color: #7d4218;
   margin-bottom: 1rem;
 }
 
 .section-block p {
-  color: #500e1f;
+  color: #64748b;
   margin-bottom: 2rem;
 }
 
@@ -308,7 +310,6 @@ background: linear-gradient(to bottom, #c2dad1, #FFFFFF);
   padding-left: 1rem;
   margin-bottom: 1.5rem;
   font-style: italic;
-  color: #500e1f;
 }
 
 .testimonials small {
@@ -331,7 +332,6 @@ background: linear-gradient(to bottom, #c2dad1, #FFFFFF);
 /* ---------------------------- program Section----------------------------------- */
 .programs-section {
   padding: 5rem 2rem;
-  background-color: #f9fafb;
 }
 
 .container {
@@ -346,13 +346,12 @@ background: linear-gradient(to bottom, #c2dad1, #FFFFFF);
 .title {
   font-size: 2.5rem;
   font-weight: bold;
-  color: #7d4218;
   margin-bottom: 1rem;
 }
 
 .subtitle {
+  color: #64748b;
   font-size: 1.25rem;
-  color: #4b5563;
   margin-bottom: 3rem;
 }
 
@@ -372,7 +371,6 @@ background: linear-gradient(to bottom, #c2dad1, #FFFFFF);
 
 .program-card:hover {
   transform: scale(1.02);
-  background: linear-gradient(to bottom, #c2dad1, #FFFFFF);
 }
 
 .program-card img {
@@ -384,14 +382,13 @@ background: linear-gradient(to bottom, #c2dad1, #FFFFFF);
 }
 
 .program-card h3 {
-  color: #047857;
   font-size: 1.25rem;
   font-weight: 600;
   margin-bottom: 0.5rem;
 }
 
 .program-card p {
-  color: #500e1f;
+  color: #64748b;
   font-size: 0.95rem;
 }
 

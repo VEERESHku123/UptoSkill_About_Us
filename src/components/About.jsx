@@ -56,13 +56,13 @@ const About = () => {
           </p>
             <div className="hero-buttons">
               <button className="explore-btn" onClick={() => navigate('')}>
-                ⭐ Explore Talent
+                Explore Talent
               </button>
               <button className="hire-btn" onClick={() => navigate('')}>
-                🧑🎓 Hire as Student
+                Hire as Student
               </button>
               <button className="try-btn" onClick={() => navigate('')}>
-                🚀 Try Free
+                 Try Free
               </button>
             </div>
         </div>
