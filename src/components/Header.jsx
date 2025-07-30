@@ -29,9 +29,9 @@ const Header = () => {
       {menuOpen && (
         <nav className="mobile-nav">
           <Link to="/" onClick={toggleMenu}>Home</Link>
-          <Link to="/about" onClick={toggleMenu}>About</Link>
-          <Link to="/programs" onClick={toggleMenu}>Programs</Link>
-          <Link to="/contact" onClick={toggleMenu}>Contact</Link>
+          <Link to="/" onClick={toggleMenu}>About</Link>
+          <Link to="/" onClick={toggleMenu}>Programs</Link>
+          <Link to="/" onClick={toggleMenu}>Contact</Link>
         </nav>
       )}
     </>
